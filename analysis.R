@@ -12,7 +12,7 @@ di1 <- svyglm(depd1 ~ tstdikm #+ age+ bmi +alc+ smo + pa
 ,data=dffull, design=desmen, family = "quasibinomial")
 di2 <- svyglm(depd2 ~  tstdikm #+ age+ bmi +alc+ smo + pa 
 ,data=dffull, design=desmen, family = "quasibinomial")
-di3 <- svyglm(depd3 ~  tstdikm #+ age+ bmi +alc+ smo +
+di3 <- svyglm(depd3 ~  tstdikm #+ age+ bmi +alc+ smo + pa
 ,data=dffull, design=desmen, family = "quasibinomial")
 di4 <- svyglm(depd4 ~  tstdikm  #+ age+ bmi +alc+ smo + pa 
 ,data=dffull, design=desmen, family = "quasibinomial")
