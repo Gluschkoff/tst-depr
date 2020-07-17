@@ -3,9 +3,10 @@ library(nhanesA)
 library(tidyverse)
 library(survey)
 library(summarytools)
-library(jtools) # for summ
+library(jtools) # for summ 
 library(splines) # for the analysis
 library(ggpubr) # for plots
+library(gridExtra) # for plots
 
 # data download and merging -------------------------------------------------------
 # Note! When combining TST data from different cycles, conversion is needed:	
