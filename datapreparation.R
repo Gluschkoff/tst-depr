@@ -3,6 +3,7 @@ library(nhanesA)
 library(tidyverse)
 library(survey)
 library(summarytools)
+library(jtools) # for summ
 library(splines) # for the analysis
 library(ggpubr) # for plots
 
