@@ -1,12 +1,12 @@
 # ANALYSIS: predictor=dichotomous low/normal TST (TST=total testosterone)-------------------------------------------------------
 ## men, outcome=depression sum score, unadjusted and adjusted models
 summend <- svyglm(depsum ~ tstdikm, data=dffull, design=desmen, family = "gaussian") 
-summend <- svyglm(depsum ~ tstdikm+ age+ bmi +alc+ smo + pa, data=dffull, design=desmen, family = "gaussian") 
-summ(summend, confint=T, scale=T, transform.response = TRUE)
+summendadj <- svyglm(depsum ~ tstdikm+ age+ bmi +alc+ smo + pa, data=dffull, design=desmen, family = "gaussian") 
+summ(summendadj, confint=T, scale=T, transform.response = TRUE)
 ## women, outcome=depression sum score, unadjusted and adjusted models
 sumwd <- svyglm(depsum ~ tstdikw, data=dffull, design=deswomen, family = "gaussian") 
-sumwd <- svyglm(depsum ~ tstdikw+ age+ bmi +alc+ smo + pa +preg, data=dffull, design=deswomen, family = "gaussian") 
-summ(sumwd, confint=T, scale=T, transform.response = TRUE)
+sumwdadj <- svyglm(depsum ~ tstdikw+ age+ bmi +alc+ smo + pa +preg, data=dffull, design=deswomen, family = "gaussian") 
+summ(sumwdadj, confint=T, scale=T, transform.response = TRUE)
 ## men, outcome=depressive symptoms, unadjusted and adjusted models (for adjusted, remove #)
 di1 <- svyglm(depd1 ~ tstdikm #+ age+ bmi +alc+ smo + pa
 ,data=dffull, design=desmen, family = "quasibinomial")
@@ -47,21 +47,24 @@ diw9 <- svyglm(depd9 ~  tstdikw #+ age+ bmi +alc+ smo + pa+ preg
               ,data=dffull, design=deswomen, family = "quasibinomial")
               
 # ANALYSIS: predictor=TST splines-------------------------------------------------------
-## men, outcome=depression sum score, unadjusted and adjusted models, without transformation and log transformed TST as predictor (for adjusted models, remove #)
+## men, outcome=depression sum score, unadjusted and adjusted models, without transformation and log transformed TST as predictor
+# (for adjusted models, remove #)
 summen <- svyglm(depsum ~ ns(tst, df=3) #+ age+ +alc + bmi + smo + pa
 , data=dffull, design=desmen, family = "gaussian") 
 regTermTest(summen, ~ns(tst, df=3))
 summenlog <- svyglm(depsum ~ ns(logtst, df=3) #+ age+ +alc + bmi + smo + pa
 , data=dffull, design=desmen, family = "gaussian")
 regTermTest(summenlog, ~ns(logtst, df=3))
-## women, outcome=depression sum score, unadjusted model and adjusted models, without transformation and log transformed TST as predictor (for adjusted models, remove #)
+## women, outcome=depression sum score, unadjusted model and adjusted models, without transformation and log transformed TST as predictor
+# (for adjusted models, remove #)
 sumw <- svyglm(depsum ~ ns(tst, df=3) #+ age+ +alc + bmi + smo + pa +preg
 , data=dffull, design=deswomen, family = "gaussian")
 regTermTest(sumw, ~ns(tst, df=3))
 sumwlog <- svyglm(depsum ~ ns(logtst, df=3) #+ age+ +alc + bmi + smo + pa +preg
 , data=dffull, design=deswomen, family = "gaussian") 
 regTermTest(sumwlog, ~ns(logtst, df=3))
-## men, outcome=depressive symptoms, unadjusted and adjusted models, without transformation and log transformed TST as predictor (for adjusted models, remove #)
+## men, outcome=depressive symptoms, unadjusted and adjusted models, without transformation and log transformed TST as predictor 
+# (for adjusted models, remove #)
 # TST without transformation, men
 spl1 <- svyglm(depd1 ~ ns(tst, df=3) #+ age+ +alc + bmi + smo + pa
 , data=dffull, design=desmen, family = "quasibinomial")
@@ -101,7 +104,8 @@ spl8log <- svyglm(depd8 ~ ns(logtst, df=3) #+ age+ +alc + bmi + smo + pa
 spl9log <- svyglm(depd9 ~ ns(logtst, df=3) #+ age+ +alc + bmi + smo + pa
 , data=dffull, design=desmen, family = "quasibinomial")
 
-## women, outcome=depressive symptoms, unadjusted models and adjusted models, without transformation and log transformed (for adjusted models, remove #)
+## women, outcome=depressive symptoms, unadjusted models and adjusted models, without transformation and log transformed 
+# (for adjusted models, remove #)
 ## TST without transformation, women
 spl1w <- svyglm(depd1 ~ ns(tst, df=3) #+age+ bmi +alc+ smo + pa +preg
 , data=dffull, design=deswomen, family = "quasibinomial")
