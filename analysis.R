@@ -150,3 +150,6 @@ regTermTest(spl1, ~ns(tst, df=3)) # men
 regTermTest(spl1log, ~ns(logtst, df=3)) # men, logtst
 regTermTest(spl1w, ~ns(tst, df=3)) # women
 regTermTest(spl1wlog, ~ns(logtst, df=3)) # women, logtst
+
+# sensitivity analysis with subsets of men and women who score >4 on the PHQ9: 
+# repeat the analysis by changing desmen to desmend (men) or deswomen to deswomend (women)
