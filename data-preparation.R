@@ -115,3 +115,6 @@ dffull <- dffull %>% mutate(tstdikm=case_when(tst<300 & sex==1 ~ 1, tst>=300 & s
 des <- svydesign(id=~psu, strata=~strata, weights=~weight, nest=TRUE,data=dffull)
 desmen <- subset(des, sex==1) 
 deswomen <- subset(des, sex==2) 
+# svy design for the sensitivity analysis with subsets of men and women who score >4 on the PHQ9
+desmend <- subset(desmen, depsum > 4) # men who score >4
+deswomend <- subset(deswomen,  depsum > 4) #women who score >4
