@@ -1,4 +1,4 @@
-## R-script for the publication Testosterone and specific symptoms of depression: Evidence from NHANES 2011–2016, https://doi.org/10.1016/j.cpnec.2021.100044.
+#### R-script for the publication Testosterone and specific symptoms of depression: Evidence from NHANES 2011–2016, https://doi.org/10.1016/j.cpnec.2021.100044.
 
 Modelling was performed in R Statistical Software (version 3.6.1) using the svyglm function [22]. The complete code is freely available on GitHub (https://github.com/Gluschkoff/tst-depr). Statistical significance for all tests was set at p ​< ​.05, and all tests were two-tailed. Given the exploratory nature of the study, nonsignificant associations with p values ​< ​.10 are also noted.
 
